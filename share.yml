@@ -1,0 +1,52 @@
+server:
+ port: 7778
+ redis: abc,cba
+
+durid:
+ cfg:
+  schema: sql/cfg.sql
+  
+spring:
+ application:
+  name: share
+ security:
+  user:
+   name: test
+   password: test123
+eureka:
+ instance:
+  instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+  hostname: 127.0.0.1
+  port: 8760
+ client:
+  serviceUrl:
+   defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${eureka.instance.port}/eureka
+  register-with-eureka: true
+  fetch-registry: true
+
+feign:
+ client:
+  config:
+   default: 
+    connectTimeout: 5000
+    readTimeout: 5000
+ compression:
+  request: 
+   enable: true
+   mime-types: text/xml,application/xml,application/json
+   min-request-size: 2048
+  response:
+   enable: true
+ hystrix:
+  enable: true
+hystrix:
+ shareSecurityContext: true
+ command:
+  default:
+   execution:
+    ioslation: 
+     thread: 
+      timeoutInMillisecond: 2000
+   circuitBreaker:
+    sleepWindowInMilliseconds: 5000
+    forceClosed: false
