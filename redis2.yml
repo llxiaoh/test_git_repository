@@ -1,4 +1,4 @@
-world_redis:
+world.redis:
  host: 192.168.1.232
  port: 6388
  password: dkkaI#27KlmQ-3k2OPj
