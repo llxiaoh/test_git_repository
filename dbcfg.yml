@@ -1,4 +1,4 @@
-durid:
+dbcfg.durid:
  className: com.mysql.cj.jdbc.Driver
  datasource:
   initialSize: 5
