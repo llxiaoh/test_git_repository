@@ -1,4 +1,4 @@
-db.durid:
+dbcfg.durid:
  cfg:
   schema: sql/cfg.sql
   url: jdbc:mysql://127.0.0.1:3306/global?autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
